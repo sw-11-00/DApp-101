@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test">
+    </div>
+
+    <div id="div">
+    </div>
+
+</body>
+<script src="../../React-js/react.development.js" type="text/javascript"></script>
+<script src="../../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../../React-js/babel.min.js" type="text/javascript"></script>
+
+
+<script type="text/babel">
+    function Demo() {
+        console.log(this);
+        return <h2>我是用函数定义的组件(适用于【简单组件】的定义)</h2>
+    }
+    function Show(props) {
+        return <h1>Hello {props.age}</h1>
+    }
+
+    ReactDOM.render(<Demo />, document.getElementById("test"));
+    ReactDOM.render(<Show age="ss" />, document.getElementById("div"));
+</script>
+
+
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sss {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="test">
+
+    </div>
+</body>
+<script src="../React-js/react.development.js" type="text/javascript"></script>
+<script src="../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js"></script>
+<script type="text/babel">
+    const MyId = "title";
+    const MyData = "Cyk";
+    const VDOM = (
+        <h1 id={MyId.toLocaleUpperCase()}>
+            <span className="sss" style={{ fontSize: '50px' }}>sss</span>
+
+        </h1>
+    )
+    ReactDOM.render(VDOM, document.getElementById("test"));
+    console.log(VDOM,typeof VDOM);
+    // virtual dom本质是对象
+    // virtual dom轻，真实DOM重
+    // 
+</script>
+
+</html>
