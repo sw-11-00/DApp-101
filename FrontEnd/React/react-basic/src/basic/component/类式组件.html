@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="test">
+
+    </div>
+</body>
+<script src="../../React-js/react.development.js" type="text/javascript"></script>
+<script src="../../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../../React-js/babel.min.js" type="text/javascript"></script>
+
+
+<script type="text/babel">  
+    class MyComponent extends React.Component {
+        // render在MyComponent的原型对象上，供实例使用
+        render() {
+            // render中的this是MyComponents的实例对象，MyComponent组件实例对象
+            console.log(this)
+            return <h2>我是用类定义的组件(适用于【复杂组件】的定义)</h2>
+        }
+    }
+
+    // 1. React解析组件标签，找到MyComponent组件
+    // 2. 发现组件是使用类定义的，随后new出来该类的实例，并通过该实例调用到原型上的render方法
+    // 3. 将render返回的虚拟DOM转为真实DOM，随后呈现在该页面中
+    ReactDOM.render(<MyComponent />, document.getElementById("test"))
+</script>
+
+</html>
