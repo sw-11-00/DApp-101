@@ -24,6 +24,11 @@ React是一个将数据渲染为HTML视图的开源JavaScript
 ### 组件实例的三大属性
 
 1. props
+   1. 每个组件对象都有props(properties)属性
+   2. 组件标签的所有属性都保存在props中
+   3. 作用
+      1. 通过标签属性从组件外向组件内传递变化的数据
+      2. 组件内部不要修改props数据
 2. refs
 3. state
    1. 是组件对象里最重要的属性，值是对象(可以包含多个key-value的组合)

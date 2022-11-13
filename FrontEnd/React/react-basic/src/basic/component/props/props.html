@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">
+
+    </div>
+
+</body>
+<script src="../../../React-js/react.development.js" type="text/javascript"></script>
+<script src="../../../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../../../React-js/babel.min.js"></script>
+<script src="../../../React-js/prop-types.js"></script>
+
+<script type="text/babel">
+
+    class Person extends React.Component {
+        render() {
+            return (
+                <ul>
+                    <li>{this.props.name}</li>
+                    <li>{this.props.age}</li>
+                    <li>{this.props.sex}</li>
+                </ul>
+            )
+        }
+
+        state = {}
+
+        // 对标签属性进行类型、必要性的限制
+        static propTypes = {
+            name: PropTypes.string.isRequired,
+            sex: PropTypes.string,
+            speak: PropTypes.func
+        }
+
+        // 指定默认的标签属性值
+        static defaultProps = {
+            sex: "不男不女",
+            age: 18
+        }
+
+        speak() {
+            console.log("这个是一个函数")
+        }
+    }
+    const p = { name: "张三", age: "18", sex: "女" }
+    // ... 展开运算符 连接数据 函数传参 构造字面量对象时使用展开语法
+    ReactDOM.render(<Person {...p} />, document.getElementById("div"));
+
+
+
+</script>
+
+</html>
