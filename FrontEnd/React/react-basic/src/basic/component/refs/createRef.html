@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">
+
+    </div>
+
+</body>
+<script src="../../../React-js/react.development.js" type="text/javascript"></script>
+<script src="../../../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../../../React-js/babel.min.js"></script>
+
+<script src="../../../React-js/prop-types.js"></script>
+
+<script type="text/babel">
+
+    class Demo extends React.Component {
+        // React.createRef调用后可以返回一个容器，该容器可以存储被ref所标识的节点
+        // 该容器是专人专用
+        MyRef = React.createRef();
+        MyRef1 = React.createRef();
+
+        btnOnClick = () => {
+            console.log(this.MyRef.current.value);
+            //alert(this.refs.dian.value);
+        }
+        inputBlur = () => {
+            console.log(this);
+        }
+        render() {
+            return (
+                <div>
+                    <input ref={this.MyRef} type="text" placeholder="点击弹出" />&nbsp;
+                    <button onClick={this.btnOnClick}>点击</button>&nbsp;
+                    <input ref={this.MyRef1} onBlur={this.inputBlur} type="text" placeholder="失去焦点弹出弹出" />
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<Demo />, document.getElementById("div"));
+
+</script>
+
+</html>

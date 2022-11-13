@@ -30,6 +30,12 @@ React是一个将数据渲染为HTML视图的开源JavaScript
       1. 通过标签属性从组件外向组件内传递变化的数据
       2. 组件内部不要修改props数据
 2. refs
+   1. 组件内的标签可以定义ref属性来标识自己
+   2. 编码
+      1. 字符串 <input ref="input1"/>
+         1. 不被推荐，效率问题
+      2. 回调形式 <input ref={(c) => {this.input1 = c}}/>
+      3. createRef创建的ref容器 myRef = React.createRef()
 3. state
    1. 是组件对象里最重要的属性，值是对象(可以包含多个key-value的组合)
    2. 组件被称为"状态机"，通过更新组件的state来更新对应的页面显示(重新渲染组件)

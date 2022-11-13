@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div">
+
+    </div>
+
+</body>
+<script src="../../../React-js/react.development.js" type="text/javascript"></script>
+<script src="../../../React-js/react-dom.development.js" type="text/javascript"></script>
+
+<script src="../../../React-js/babel.min.js"></script>
+
+<script src="../../../React-js/prop-types.js"></script>
+
+<script type="text/babel">
+
+    class Dom extends React.Component {
+
+        state = { isHot: true };
+
+        btnOnClick = () => {
+            alert(this.dian.value);
+        }
+        inputBlur = () => {
+            alert(this.shiqu.value);
+        }
+        btnOnClick2 = () => {
+            this.setState({ isHot: !this.state.isHot });
+        }
+        isRef = (c) => {
+            this.dian = self;
+        }
+        render() {
+            return (
+                <div>
+                    {/*<input ref={this.isRef} type="text" placeholder="点击弹出" />&nbsp;*/}
+                    <input ref={this.isRef} type="text" placeholder="点击弹出" />&nbsp;
+                    <button onClick={this.btnOnClick}>点击</button>&nbsp;
+                    <button onClick={this.btnOnClick2}>点击</button>&nbsp;
+                    <input ref={self => this.shiqu = self} onBlur={this.inputBlur} type="text" placeholder="失去焦点弹出弹出" />
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<Dom />, document.getElementById("div"));
+
+</script>
+
+</html>
