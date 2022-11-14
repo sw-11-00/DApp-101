@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <div id="div">
+
+    </div>
+
+</body>
+<script src="../React-js/17.0/react.development17.0.js" type="text/javascript"></script>
+<script src="../React-js/17.0/react-dom.development17.0.js" type="text/javascript"></script>
+
+<script src="../React-js/babel.min.js"></script>
+
+<script src="../React-js/17.0/prop-types.js"></script>
+
+<script type="text/babel">
+
+    class A extends React.Component {
+
+        constructor(props) {
+            console.log("A --- constructor")
+            super(props);
+            this.state = { num: 1 }
+        }
+
+        add = () => {
+            let { num } = this.state;
+            this.setState({ num: num + 1 });
+        }
+
+        render() {
+            console.log("A --- render");
+            return (
+                <div>
+                    <h1>这个是第{this.state.num}个</h1>
+
+                    <button onClick={this.add}>点击加一</button>
+                </div>
+            )
+        }
+
+        static getDerivedStateFromProps(props) {
+            console.log("A --- getDerivedStateFromProps", props);
+            return null;
+        }
+
+        getSnapshotBeforeUpdate() {
+            console.log("A --- getSnapshotBeforeUpdate");
+            return null;
+        }
+
+        componentDidMount() {
+            console.log("A --- componenetDidMount");
+        }
+
+        shouldComponentUpdate() {
+            console.log("A --- shouldComponentUpdate");
+            return true;
+        }
+
+        componentDidUpdate() {
+            console.log("A --- componentDidUpdate");
+        }
+
+        componentWillUnmonut() {
+            console.log("A --- componentWillUnmonut");
+        }
+
+    }
+
+
+    ReactDOM.render(<A />, document.getElementById("div"));
+
+</script>
+
+</html>

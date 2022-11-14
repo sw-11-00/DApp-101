@@ -69,3 +69,52 @@ React是一个将数据渲染为HTML视图的开源JavaScript
 
 ### 5. 组件生命周期
 
+1. 组件从创建到死亡会经历一些特定的阶段
+2. React组件中包含一系列钩子函数(生命周期回调函数)，会在特定的时刻调用
+3. 我们在定义组件时，会在特定的生命周期回调函数中做特定的工作
+
+#### 5.1 生命周期的三个阶段(旧)
+
+1. 初始化阶段：由ReactDOM.render()触发 - 初次渲染
+   1. constructor()
+   2. componentWillMount()
+   3. render()
+   4. componentDidMount() - 常用
+      1. 一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息
+2. 更新阶段：由组件内部this.setState()或父组件重新render触发
+   1. shouldComponentUpdate()
+   2. componentWillUpdate()
+   3. render()
+   4. componentDidUpdate()
+3. 卸载组件：由ReactDOM.unmountComponentAtNode()触发
+   1. componentWillUnmount() - 常用
+      1. 一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息
+
+#### 5.2 生命周期的三个阶段(新)
+
+1. 初始化阶段：由ReactDOM.render()触发 - 初次渲染
+   1. constructor()
+   2. getDerivedStateFromProps
+   3. render()
+   4. componentDidMount()
+2. 更新阶段：由组件内部this.setState()或父组件重新render触发
+   1. getDerivedStateFromProps
+   2. shouldComponentUpdate()
+   3. render()
+   4. getSnapshotBeforeUpdate
+   5. componentDidUpdate()
+3. 卸载组件：由ReactDOM.unmountComponentAtNode()触发
+   1. componentWillUnamount()
+4. 重要的钩子
+   1. Render：初始化渲染或者更新渲染调用
+   2. componentDidMount：开启监听，发送ajax请求
+   3. componentWillUnmount：做一些收尾的工作，如：清理定时器
+5. 即将废弃的钩子
+   1. componentWillMount
+   2. componentWillReceiveProps
+   3. componentWillUpdate
+
+
+
+
+
