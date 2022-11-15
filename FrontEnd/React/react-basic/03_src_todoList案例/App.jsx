@@ -6,6 +6,7 @@ import List from './components/List/list'
 
 class App extends Component {
 
+  // 状态在哪里，操作状态的方法就在哪里
   state = {
     todos: [
       { id: 1, name: "吃饭", done: true },

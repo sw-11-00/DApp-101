@@ -3,6 +3,7 @@ import './item.css'
 
 export default class Item extends Component {
 
+  // 标识鼠标移入、移出
   state = { mouse: false }
 
   handleMouse = (flag) => {

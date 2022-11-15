@@ -16,7 +16,7 @@ class Footer extends Component {
   render() {
 
     const { todos } = this.props.allCheck;
-    const sum = todos.reduce((pre, todo) => { return pre + (todo.done ? 1 : 0) }, 0)
+    const sum = todos.reduce((pre, todo) => pre + (todo.done ? 1 : 0), 0)
 
     return (
       <div className="todo-footer">
