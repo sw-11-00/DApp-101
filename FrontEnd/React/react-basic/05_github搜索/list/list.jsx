@@ -1,26 +1,14 @@
 import React, { Component } from 'react';
-import PubSub from 'pubsub-js'
 
 import './list.css'
 class List extends Component {
 
-    state = {
-        Git: [],
-        isFrist: true,
-        isLoad: false,
-        isError: ''
-    }
 
-    componentDidMount() {
-        PubSub.subscribe("getSate", (_, data) => {
-            console.log(data)
-            this.setState(data)
-        })
-    }
+
 
     render() {
 
-        const { Git, isFrist, isLoad, isError } = this.state;
+        const { Git, isFrist, isLoad, isError } = this.props;
         return (
             <div className="row">
                 {
@@ -38,6 +26,7 @@ class List extends Component {
                                     )
                                 })
                 }
+
 
             </div>
         );

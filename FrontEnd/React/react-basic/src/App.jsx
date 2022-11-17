@@ -4,23 +4,15 @@ import List from './list/list'
 
 class App extends Component {
 
-    state = {
-        Git: [],
-        isFrist: true,
-        isLoad: false,
-        isError: ''
-    }
 
-    updateAppState = (stateObj) => {
-        this.setState(stateObj)
-    }
+
 
     render() {
         return (
             <div className="container">
-                <Header updateAppState={this.updateAppState} />
+                <Header />
 
-                <List {...this.state} />
+                <List />
             </div>
 
         )

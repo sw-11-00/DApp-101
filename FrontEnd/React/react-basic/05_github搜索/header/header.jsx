@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import PubSub from 'pubsub-js'
-
 export default class Header extends Component {
 
     search = () => {
+        //const {value} = this.KeyValue;
+        //连续解构赋值，拿到this下面的KeyValue中的value,并进行重命名为KeyWord
         const { KeyValue: { value: keyWord } } = this;
 
-        PubSub.publish("getSate", { isFrist: false, isLoad: true })
+        //在搜索之前设置,搜索的开始，结束第一次展示
+        this.props.updateAppState({ isFrist: false, isLoad: true })
 
+        //切记在配置代理了之后一定需要添加相应的路径
         axios.get(`http://localhost:3000/api1/search/users?q=${keyWord}`).then(
             success => {
-                PubSub.publish("getSate", { Git: success.data.items, isLoad: false })
+                this.props.updateAppState({ Git: success.data.items, isLoad: false });
             },
             error => {
-                PubSub.publish("getSate", { isError: error.message, isLoad: false })
+                this.props.updateAppState({ isError: error.message, isLoad: false });
             }
         )
     }
