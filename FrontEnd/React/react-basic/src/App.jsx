@@ -1,23 +1,28 @@
-//创建外壳组件APP
 import React, { Component } from 'react'
-import axios from 'axios'
-import './App.css'
+import Header from './header/header';
+import List from './list/list'
 
 class App extends Component {
 
-    click = () => {
-        axios.get('http://localhost:3000/students').then(
-            result => { console.log("这个成功", result.data) },
-            error => { console.log("失败", error) }
-        )
+    state = {
+        Git: [],
+        isFrist: true,
+        isLoad: false,
+        isError: ''
+    }
+
+    updateAppState = (stateObj) => {
+        this.setState(stateObj)
     }
 
     render() {
         return (
-            <div >
-                <button onClick={this.click}>点击我</button>
+            <div className="container">
+                <Header updateAppState={this.updateAppState} />
 
+                <List {...this.state} />
             </div>
+
         )
     }
 }
